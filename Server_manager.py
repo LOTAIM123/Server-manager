@@ -184,11 +184,18 @@ while again == 0:
             
             con = input("Press enter when loading process is done!")
             
-            os.startfile("\Server manager/servers/" + c3 + "/run.bat")
+            try:
+                os.rmdir("\Server manager/servers/" + c3 + "/installer.txt")
+            except FileNotFoundError:
+                pass
+                
+            os.startfile("\Server manager\servers/" + c3 + "\run.bat")
             
-            con = input("Press enter when loading process is done!")
-            #add EULA
-            open ("\Server manager/servers/" + c3 + "/eula.txt")
+            con = input("Press enter when 1. server start process is done!")
+            
+            #EULA
+            
+            open ("\Server manager/servers/" + c3 + "/eula.txt", "a")
 
             
         con = input("Press enter to return to main menu!")
