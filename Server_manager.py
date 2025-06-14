@@ -150,6 +150,7 @@ while again == 0:
         print ("Which loader to use?")
         c4 = int(input())
 
+    #Vanilla setup
         if c4 == 1 :
             print ("You selected Vanilla!")
             print (os.listdir("\Server manager/vanilla/loader"))
@@ -158,6 +159,7 @@ while again == 0:
             v1 = input()
             os.startfile("\Server manager/vanilla/loader/" + m1 + ".jar")
     
+    #Modded setup
         elif c4 == 2 :
             print ("You selected Moded!")
             print (os.listdir("\Server manager/moded/loader"))
@@ -173,13 +175,20 @@ while again == 0:
             m2 = input()
             os.startfile("\Server manager/moded/loader/" + m1 + "/" + m2) 
             print ("")
+            print ("!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!")
             print ("Select Install server and in the target directory paste:")
+            print ("!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!")
             print ("")
             print ("C:\Server manager\servers/" + c3)
             print ("")
+            
             con = input("Press enter when loading process is done!")
+            
             os.startfile("\Server manager/servers/" + c3 + "/run.bat")
+            
+            con = input("Press enter when loading process is done!")
             #add EULA
+            open ("\Server manager/servers/" + c3 + "/eula.txt")
 
             
         con = input("Press enter to return to main menu!")
