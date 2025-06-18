@@ -188,16 +188,34 @@ while again == 0:
                 os.rmdir("\Server manager/servers/" + c3 + "/installer.txt")
             except FileNotFoundError:
                 pass
-                
-            os.startfile("\Server manager\servers/" + c3 + "\run.bat")
+            print("Set RAM usage for the server")
+            os.startfile("C:\Server manager\servers/" + c3 + "/user_jvm_args.txt")
+            
+            con = input("Press enter when you are done!")
+            
+            os.startfile("C:\Server manager\servers/" + c3 + "/run.bat")
             
             con = input("Press enter when 1. server start process is done!")
             
-            #EULA
+            print("")
+            print("Do you accept minecraft EULA?")
+            print("If you dont accept EULA you wont be able to use the server", c3)
+            print("Y/N")
+            print("")
+            eula = str(input())
             
-            open ("\Server manager/servers/" + c3 + "/eula.txt", "a")
+            if eula == "Y" :
+            
+                file = open ("\Server manager/servers/" + c3 + "/eula.txt", "w")
+                file.write("eula=true")
+                file.close()
+                con = input("You accepted EULA and are now free to start server when needed!")
+            else :
+                file = open ("\Server manager/servers/" + c3 + "/eula.txt", "w")
+                file.write("eula=false")
+                file.close()
+                con = input("You declined EULA and wont be able to use the server!")
 
-            
         con = input("Press enter to return to main menu!")
         
     #open server manager folder
@@ -215,4 +233,4 @@ while again == 0:
     elif a1 == 0 :
         again = 1
     
-x = input("App has crashed! Report this error to ")
+x = input("App has crashed! Report this error to https://github.com/LOTAIM123/Server-manager")
