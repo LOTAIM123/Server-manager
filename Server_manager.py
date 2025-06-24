@@ -113,9 +113,9 @@ while again == 0:
     #open server
     if a1 == 1 :
         print (os.listdir("\Server manager/servers/"))
-        c1 = str(input("Select server to open:"))
+        c1 = str(input("Select server to open and the open run.bat:"))
         try:
-            os.startfile("\Server manager/servers/" + c1 + "/run.bat")
+            os.startfile("\Server manager/servers/" + c1)
             con = input("Press enter to return to main menu!")
         except FileNotFoundError:
             print ("Server does not exist!")
@@ -193,18 +193,20 @@ while again == 0:
             
             con = input("Press enter when you are done!")
             
-            os.startfile("C:\Server manager\servers/" + c3 + "/run.bat")
+            print("Open the start.bat file and wait for it to complete!")
+            os.startfile("C:\Server manager\servers/" + c3)
             
             con = input("Press enter when 1. server start process is done!")
             
             print("")
             print("Do you accept minecraft EULA?")
-            print("If you dont accept EULA you wont be able to use the server", c3)
-            print("Y/N")
+            print("If you dont accept EULA you wont be able to use the server", c3 , "(Type in a number)")
+            print("1.Y")
+            print("2.N")
             print("")
-            eula = str(input())
+            eula = int(input())
             
-            if eula == "Y" :
+            if eula == 1 :
             
                 file = open ("\Server manager/servers/" + c3 + "/eula.txt", "w")
                 file.write("eula=true")
